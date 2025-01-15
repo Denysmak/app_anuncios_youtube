@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import Header from './Header';
+
 
 function TelaPrincipal() {
   const [email, setEmail] = useState('');
@@ -12,9 +14,7 @@ function TelaPrincipal() {
 
   return (
     <div>
-      <h1>Bem-vindo ao Dashboard</h1>
-      <p>Seu e-mail registrado é: {email}</p>
-      {/* Adicione funcionalidades adicionais aqui */}
+      <Header email={email}/>
     </div>
   );
 }

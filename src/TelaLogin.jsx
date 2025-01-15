@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import youtubeLogo from './assets/logoYoutube.png'
 import './TelaLogin.css';
+import YoutubeLogo from './YoutubeLogo';
 
 
 function TelaLogin() {
@@ -26,10 +27,7 @@ function TelaLogin() {
     <>
     <div className="container">
      <div className="containerForm">
-      <div className="containerLogo">
-        <img id='logoYoutube' src={youtubeLogo} alt="logotipo de YouTube" />
-        <h2><span className='letrasMaiores'>Y</span>OU<span className='letrasMaiores'>T</span>UBE</h2>
-      </div>
+      <YoutubeLogo/>
       <div className="texto">
       <h2>Bienvenido(a) a YoutubeOpina</h2>
       <p>Ingresa tu correo electrónico para continuar</p>
