@@ -1,10 +1,26 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import youtubeLogo from './assets/logoYoutube.png'
 import './telaLogin.css';
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [email, setEmail] = useState('');//estado para armazenar o email do usuário
+  const navigate = useNavigate();//função para redirecionar o usuário
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Evita o comportamento padrão do formulário
+    if (email){
+      localStorage.setItem('userEmail', email); //salva o e-mail no localstorage
+      navigate('/telaPrincipal'); //Redireciona para outo componente
+    } else {
+      alert('Por favor, insira um e-mail válido.');
+    }
+
+
+  };
+
+
 
   return (
     <>
@@ -18,8 +34,8 @@ function App() {
       <h2>Bienvenido(a) a YoutubeOpina</h2>
       <p>Ingresa tu correo electrónico para continuar</p>
       </div>
-      <form action="">
-        <input type="email" name="email" id="email" placeholder='Tu correo electrónico'/>
+      <form onSubmit={handleSubmit}>
+        <input type="email" name="email" id="email" placeholder='Tu correo electrónico' value={email} onChange={(e) => setEmail(e.target.value)}/>
         <button type="submit">Entrar</button>
       </form>
      </div>
