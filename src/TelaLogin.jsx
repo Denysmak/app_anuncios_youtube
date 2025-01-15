@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import youtubeLogo from './assets/logoYoutube.png'
-import './telaLogin.css';
+import './TelaLogin.css';
 
 
-function App() {
+function TelaLogin() {
   const [email, setEmail] = useState('');//estado para armazenar o email do usuário
   const navigate = useNavigate();//função para redirecionar o usuário
 
@@ -48,4 +48,4 @@ function App() {
   )
 }
 
-export default App
+export default TelaLogin

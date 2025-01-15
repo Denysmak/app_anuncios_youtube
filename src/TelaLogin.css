@@ -10,7 +10,7 @@
     background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
 }
 .containerForm{
-    padding: 20px 15px;
+    padding: 30px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +72,7 @@ form{
 form > *{
     height: 45px;
     border-radius: 7px;
-    margin: 0 10px;
+    margin: 5px 10px;
 }
 form input{
     border:1px solid #bdbdbd;
@@ -124,4 +124,30 @@ h2{
     font-size: 0.9rem;
     font-weight: normal;
     color: #505050;
+}
+@media (max-width: 800px){
+    .containerForm{
+        width: 60%;
+        height: 33%;
+    }
+}
+@media (max-width: 600px){
+    .texto h2{
+        font-size: 1.3rem;
+    }
+    .texto p{
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 520px){
+    .texto h2{
+        font-size: 1.2rem;
+    }
+    .texto p{
+        font-size: 0.85rem;
+    }
+    .containerForm{
+        min-width: 300px;
+    }
 }
