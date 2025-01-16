@@ -1,14 +1,17 @@
+p{
+    margin: 0;
+}
 .containerForm{
-    border: 2px solid red;
+    border-bottom: 1.5px solid rgb(199, 199, 199);
     font-family: inter,  -apple-system,  sans-serif;
-    height: 80px;
+    height: fit-content;
     padding: 0 5%;
-    padding-bottom: 1%;
+    min-width: 300px;
+    padding-bottom: 2%;
    
 }
 .logoValor{
     display: flex;
-    border: 2px solid cyan;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
@@ -40,6 +43,31 @@
     width: 20px;
     margin-right: 4px;
 }
-.userContainer p{
-    margin: 0;
+
+.pagoHoje{
+
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.pagoHoje img{
+    height: 20px;
+    margin-right: 5px;
+}
+.informacoes{
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.informacoes > *{
+    margin: 5px;
+}
+.pessoas{
+    display: flex;
+    align-items: center;
+}
+.pessoas img{
+    height: 16px;
+    margin-right: 5px;
 }
