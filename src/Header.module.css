@@ -4,11 +4,19 @@ p{
 .containerForm{
     border-bottom: 1.5px solid rgb(199, 199, 199);
     font-family: inter,  -apple-system,  sans-serif;
-    height: fit-content;
+    box-sizing: border-box;
     padding: 0 5%;
     min-width: 300px;
-    padding-bottom: 2%;
-   
+    position: fixed;
+    top: 0;
+    background-color: aliceblue;
+    height: 100px;
+    width: 100%;
+    padding-bottom: 2%; 
+    margin-bottom: 5px;
+    z-index: 2;
+    box-shadow: 4px 2px 8px rgba(63, 63, 63, 0.5);
+
 }
 .logoValor{
     display: flex;
@@ -32,7 +40,7 @@ p{
 
     display: flex;
     width: fit-content;
-    margin-left: 8%;
+
     padding: 2px;
     justify-content: center;
     align-items: center;
