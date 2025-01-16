@@ -21,11 +21,11 @@ function Header({email}) {
           </div>
           <div className={styles.pagoHoje}>
             <img src={sack} alt="" />
-            <p>R$ 100.000</p>
+            <p>Pago Hoje: R$ 100.000</p>
           </div>
           <div className={styles.pessoas}>
             <img src={pessoas} alt="" />
-            <p>852</p>
+            <p>Pessoas: 852</p>
           </div>
 
 

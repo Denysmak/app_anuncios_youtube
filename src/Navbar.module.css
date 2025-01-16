@@ -1,0 +1,34 @@
+.container{
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+}
+.container > *{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: black; /* Cor inicial */
+    transition: color 0.3s ease;
+}
+
+.container > * .icone{
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.inactive {
+    color: black;
+    cursor: pointer;
+  }
+  
+  .active {
+    color: red;
+    cursor: pointer;
+  }
