@@ -7,7 +7,7 @@ import Ajuda from './Ajuda';
 
 function TelaPrincipal() {
   const [email, setEmail] = useState('');
-  const [activePage, setActivePage] = useState('Page1'); // Página inicial
+  const [activePage, setActivePage] = useState('Inicio'); // Página inicial definida como "Inicio"
 
   useEffect(() => {
     const savedEmail = localStorage.getItem('userEmail'); // Recupera o e-mail salvo
@@ -18,11 +18,11 @@ function TelaPrincipal() {
 
   const renderPage = () => {
     switch (activePage) {
-      case 'Page1':
+      case 'Saque':
         return <Saque />;
-      case 'Page2':
+      case 'Inicio':
         return <Inicio />;
-      case 'Page3':
+      case 'Ajuda':
         return <Ajuda />;
       default:
         return <h2>Página não encontrada</h2>;
@@ -35,7 +35,7 @@ function TelaPrincipal() {
       <div className="content" style={{ marginTop: '100px' }}>
         {renderPage()}
       </div>
-      <Navbar onNavigate={setActivePage} />
+      <Navbar onNavigate={setActivePage} defaultPage="Inicio" />
     </div>
   );
 }
