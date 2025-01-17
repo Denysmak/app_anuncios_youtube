@@ -88,9 +88,7 @@ p{
     .pessoas{
         display: none;
     }
-    .logoValor{
-        height: 45px;
-    }
+    
     .informacoes > *{
         margin: 3px;
     }
