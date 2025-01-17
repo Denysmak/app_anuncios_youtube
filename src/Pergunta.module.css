@@ -3,8 +3,8 @@
 
     padding: 10px 30px;
 }
-p{
-    display: none;
+.inactive{
+  display: none;
 }
 .active{
     display: flex;
