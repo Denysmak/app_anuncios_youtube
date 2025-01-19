@@ -12,7 +12,7 @@
     border-radius: 20px;
     padding: 30px;
     font-family: inter,  -apple-system,  sans-serif;
-    margin: 50px 50px 50px 50px;
+    margin: 40px 4px 4px 4px;
     width: 450px;
     min-height: 150px;
     box-sizing: border-box;
@@ -39,6 +39,21 @@
 .saldo{
     color: #ff0800;
 }
+@media (max-width: 650px){
+    .container{
+        width:380px 
+    }
+    .bancos{
+        display: flex;
+        justify-content: space-around;
+        gap: 0px;
+        flex-wrap: wrap;
+        padding: 10px;
+        margin-top: 15px;
+    }
+}
+
+
 @media (max-width: 450px){
     .container{
    
