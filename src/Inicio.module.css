@@ -1,0 +1,27 @@
+.container{
+
+    width: 100%;
+}
+.containerNumeros{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.container h1{
+    color: #ff0800;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+.containerTexto{
+    margin: 30px 0px;
+}
+@media (max-width:500px){
+    .containerNumeros{
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: start;
+    }
+}

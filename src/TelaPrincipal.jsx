@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Saque from './Saque';
 import Inicio from './Inicio';
 import Ajuda from './Ajuda';
+import styles from './TelaPrincipal.module.css'
 
 
 
@@ -32,9 +33,9 @@ function TelaPrincipal() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header email={email} />
-      <div className='content' style={{ marginTop: '100px' }}>
+      <div className={styles.content} style={{ marginTop: '100px' }}>
         {renderPage()}
       </div>
       <Navbar onNavigate={setActivePage} defaultPage="Inicio" />

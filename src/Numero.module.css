@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    width: 40%;
+    padding: 5px;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    min-width: 300px;
+}
+.container:hover{
+    border-bottom: 1px solid gray;
+}
+.containerImg{
+    margin: 0px 15px;
+    padding: 10px 15px;
+    border-radius: 12px;
+}
+.containerTexto{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+.containerTexto > *{
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+@media (max-width: 800px){
+    .container{
+        width: 80%;
+    }
+}
+@media (max-width: 700px){
+    .container{
+        width: 100%;
+        min-width: 280px;
+    }
+}
+

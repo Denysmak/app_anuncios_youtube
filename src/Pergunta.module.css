@@ -6,6 +6,9 @@
     width: 50%;
  
 }
+.container h4{
+  margin-bottom: 10px;
+}
 
 .active {
   display: block;

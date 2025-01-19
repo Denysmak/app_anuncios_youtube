@@ -16,13 +16,23 @@
     width: 450px;
     min-height: 150px;
     box-sizing: border-box;
-
+}
+.container > p{
+    margin: 20px;
+}
+.container > h3{
+    margin: 20px;
+}
+.container > p{
+    margin: 20px;
+}
+.container > h1{
+    margin: 20px;
 }
 .bancos{
     display: flex;
     justify-content: space-around;
     gap: 0px;
-   
     flex-wrap: wrap;
     padding: 10px;
 }
