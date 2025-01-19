@@ -24,7 +24,7 @@ function Ajuda() {
       pergunta: '¿Desea cancelar su suscripción? Haga clic en el botón de abajo',
       texto: '¡Ofrecemos garantía total de satisfacción! Si por cualquier motivo no quedas satisfecho...',
       links: [
-        { texto: 'Acceder a la aplicación', url: '/cancelar' },
+        { texto: 'Acceder a la aplicación', url: './telaPrincipal' },
         {
           texto: 'Cancelar subscripción',
           url: 'https://acceso-oficial.digital/devolucion/',
