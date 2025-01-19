@@ -5,6 +5,8 @@ import Saque from './Saque';
 import Inicio from './Inicio';
 import Ajuda from './Ajuda';
 
+
+
 function TelaPrincipal() {
   const [email, setEmail] = useState('');
   const [activePage, setActivePage] = useState('Inicio'); // Página inicial definida como "Inicio"
@@ -32,7 +34,7 @@ function TelaPrincipal() {
   return (
     <div>
       <Header email={email} />
-      <div className="content" style={{ marginTop: '100px' }}>
+      <div className='content' style={{ marginTop: '100px' }}>
         {renderPage()}
       </div>
       <Navbar onNavigate={setActivePage} defaultPage="Inicio" />

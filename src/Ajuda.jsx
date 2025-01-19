@@ -24,11 +24,11 @@ function Ajuda() {
       pergunta: '¿Desea cancelar su suscripción? Haga clic en el botón de abajo',
       texto: '¡Ofrecemos garantía total de satisfacción! Si por cualquier motivo no quedas satisfecho...',
       links: [
-        { texto: 'Acceder a la aplicación', url: './telaPrincipal' },
+        { texto: 'Acceder a la aplicación', url: '/' },
         {
           texto: 'Cancelar subscripción',
           url: 'https://acceso-oficial.digital/devolucion/',
-          style: { backgroundColor: 'black', color: 'white', padding: '10px', textDecoration: 'none' },
+         
         },
       ],
     },
@@ -42,11 +42,18 @@ function Ajuda() {
     color: '#ff0800', // Cor do texto
     textAlign: 'center',
     marginTop: '120px',
+    marginBottom: '20px'
+  };
+  const estiloPai = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   };
 
+
   return (
-    <div>
-      <h2 style={estilo}>Preguntas Frecuentes</h2>
+    <div style={estiloPai}>
+      <h2 style={estilo} >Preguntas Frecuentes</h2>
       {perguntas.map((item) => (
         <Pergunta
           key={item.id}

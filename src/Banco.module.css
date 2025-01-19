@@ -1,0 +1,28 @@
+
+.logo{
+    width: 65px;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-left: 4px solid rgb(116, 113, 113);
+    border-right: 4px solid rgb(116, 113, 113);;
+    border-radius: 20px;
+    
+}
+.logo:hover{
+    width: 68px;
+    border-left: 6px solid rgb(194, 14, 14);
+    border-right: 6px solid rgb(194, 14, 14);
+}
+.containerImagem{
+    width: 100px;
+    height: 80px;
+    display: flex;
+    margin: 25px;
+    padding: 0;
+    position: relative;
+
+
+}
