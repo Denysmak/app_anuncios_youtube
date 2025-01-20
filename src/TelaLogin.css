@@ -1,13 +1,14 @@
 
 .container{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: inter,  -apple-system,  sans-serif;
     background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+
 }
 .containerForm{
     padding: 30px 15px;
