@@ -114,7 +114,6 @@ const VideoPlayer = () => {
       setVideos(EMERGENCY_VIDEOS); // Se o Vimeo falhar, usa os vídeos de emergência
     }
   };
-  
 
   useEffect(() => {
     if (useVimeo) {
@@ -148,6 +147,11 @@ const VideoPlayer = () => {
     }
   };
 
+  // Função para pular o vídeo atual
+  const skipVideo = () => {
+    goToNextVideo();
+  };
+
   return (
     <div className={styles.container}>
       {videos.length > 0 ? (
@@ -166,6 +170,7 @@ const VideoPlayer = () => {
           <div>
             <button onClick={() => handleRating("like")}>👍 Like</button>
             <button onClick={() => handleRating("dislike")}>👎 Dislike</button>
+            <button onClick={skipVideo}>⏭ Pular Vídeo</button>
           </div>
         </div>
       ) : (
