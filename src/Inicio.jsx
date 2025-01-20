@@ -4,20 +4,49 @@ import { faDollarSign, faCalendar, faCheck, faChartSimple } from '@fortawesome/f
 import AvaliaVideo from './AvaliaVideo';
 import { useState, useEffect } from 'react';
 
-function Inicio() {
-  // Inicializa o estado com o valor salvo no LocalStorage ou com 100.00 se não existir
+function Inicio({ email }) {
+  if (!email) {
+    throw new Error('Email is required to use this component.');
+  }
+
+  // Função para gerar uma chave única no localStorage baseada no email
+  const getStorageKey = (key) => `${email}_${key}`;
+
+  // Estado do saldo atual
   const [saldoAtual, setSaldoAtual] = useState(() => {
-    const saldoSalvo = localStorage.getItem('saldoAtual');
-    return saldoSalvo ? parseFloat(saldoSalvo) : 100.00; // Parse para garantir que é número
+    const saldoSalvo = localStorage.getItem(getStorageKey('saldoAtual'));
+    return saldoSalvo ? parseFloat(saldoSalvo) : 100.0;
   });
 
-  // Salvar saldo no LocalStorage sempre que ele mudar
+  // Estado para o número de avaliações
+  const [numeroAvaliacoes, setNumeroAvaliacoes] = useState(() => {
+    const avaliacoesData = JSON.parse(localStorage.getItem(getStorageKey('avaliacoesDiarias'))) || { date: '', count: 0 };
+    const hoje = new Date().toISOString().split('T')[0];
+    return avaliacoesData.date === hoje ? avaliacoesData.count : 0;
+  });
+
+  const [avaliacoesRestantes, setAvaliacoesRestantes] = useState(() => 10 - numeroAvaliacoes);
+
+  // Atualizar saldo no localStorage
   useEffect(() => {
-    localStorage.setItem('saldoAtual', saldoAtual.toFixed(2));
+    localStorage.setItem(getStorageKey('saldoAtual'), saldoAtual.toFixed(2));
   }, [saldoAtual]);
 
+  // Atualizar avaliações diárias no localStorage
+  useEffect(() => {
+    const hoje = new Date().toISOString().split('T')[0];
+    localStorage.setItem(getStorageKey('avaliacoesDiarias'), JSON.stringify({ date: hoje, count: numeroAvaliacoes }));
+  }, [numeroAvaliacoes]);
+
+  // Função chamada ao avaliar um vídeo
   const handleAvaliaVideo = (valor) => {
-    setSaldoAtual((prevSaldo) => prevSaldo + valor); // Atualiza o saldo ao receber o valor de AvaliaVideo
+    if (avaliacoesRestantes > 0) {
+      setSaldoAtual((prevSaldo) => prevSaldo + valor);
+      setNumeroAvaliacoes((prevCount) => prevCount + 1);
+      setAvaliacoesRestantes((prev) => prev - 1);
+    } else {
+      alert('Você atingiu o limite de 10 avaliações para hoje.');
+    }
   };
 
   return (
@@ -36,22 +65,22 @@ function Inicio() {
         />
         <Numero
           icone={faCalendar}
-          texto={'Investigaciones hoy'}
-          valor={'R$ 100.00'}
+          texto={'Evaluaciones hoy'}
+          valor={numeroAvaliacoes.toString()}
           corIcone={'rgb(0 92 139)'}
           corBackground={'rgba(0, 92,139, 0.3)'}
         />
         <Numero
           icone={faCheck}
-          texto={'Investigaciones restantes'}
-          valor={'R$ 100.00'}
+          texto={'Evaluaciones restantes'}
+          valor={avaliacoesRestantes.toString()}
           corIcone={'rgb(157 ,84 ,187)'}
           corBackground={'rgba(157 ,84 ,187, 0.3)'}
         />
         <Numero
           icone={faChartSimple}
           texto={'Potencial diario restante'}
-          valor={'R$ 100.00'}
+          valor={`R$ ${(10 - numeroAvaliacoes) * 2}.00`}
           corIcone={'rgb(240, 199 ,85)'}
           corBackground={'rgba(240, 199 ,85, 0.3)'}
         />

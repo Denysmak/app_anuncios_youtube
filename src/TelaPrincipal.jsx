@@ -6,8 +6,6 @@ import Inicio from './Inicio';
 import Ajuda from './Ajuda';
 import styles from './TelaPrincipal.module.css'
 
-
-
 function TelaPrincipal() {
   const [email, setEmail] = useState('');
   const [activePage, setActivePage] = useState('Inicio'); // Página inicial definida como "Inicio"
@@ -15,16 +13,20 @@ function TelaPrincipal() {
   useEffect(() => {
     const savedEmail = localStorage.getItem('userEmail'); // Recupera o e-mail salvo
     if (savedEmail) {
-      setEmail(savedEmail);
+      setEmail(savedEmail); // Atualiza o estado com o e-mail salvo no localStorage
     }
   }, []);
 
   const renderPage = () => {
     switch (activePage) {
       case 'Saque':
-        return <Saque />;
+        return <Saque  email={email}/>;
       case 'Inicio':
-        return <Inicio />;
+        if (email) {
+          return <Inicio email={email} />;
+        } else {
+          return <h2>Por favor, faça login para acessar esta página.</h2>;
+        }
       case 'Ajuda':
         return <Ajuda />;
       default:

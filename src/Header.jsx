@@ -6,92 +6,66 @@ import sack from './assets/sack-dolar.svg';
 import pessoas from './assets/userGroup.svg';
 
 function Header({ email }) {
+  const [loading, setLoading] = useState(true); // Estado de carregamento
   const [pagoHoje, setPagoHoje] = useState(16500); // Valor inicial padrão
   const [pessoasCount, setPessoasCount] = useState(734); // Valor inicial padrão
-  const [saldoAtual, setSaldoAtual] = useState(0.00); // Valor inicial do saldo
+  const [saldoAtual, setSaldoAtual] = useState(0.0); // Valor inicial do saldo
 
-  // Função para carregar o saldo atual do localStorage
-  const loadSaldoAtual = () => {
-    const saldo = parseFloat(localStorage.getItem('saldoAtual')) || 0.00;
-    setSaldoAtual(saldo);
-  };
+  // Função para gerar uma chave única no localStorage baseada no email
+  const getStorageKey = (key) => `${email}_${key}`;
 
   useEffect(() => {
+    if (!email) return;
+
+    const storedPagoHoje = parseFloat(localStorage.getItem(getStorageKey('pagoHoje'))) || 16500;
+    const storedPessoasCount = parseInt(localStorage.getItem(getStorageKey('pessoasCount')), 10) || 734;
+    const storedSaldoAtual = parseFloat(localStorage.getItem(getStorageKey('saldoAtual'))) || 0.0;
+
+    setPagoHoje(storedPagoHoje);
+    setPessoasCount(storedPessoasCount);
+    setSaldoAtual(storedSaldoAtual);
+    setLoading(false); // Finaliza o carregamento após os dados serem definidos
+  }, [email]);
+
+  useEffect(() => {
+    if (!email || loading) return;
+
     const interval = setInterval(() => {
-      const saldo = parseFloat(localStorage.getItem('saldoAtual')) || 0.00;
+      const saldo = parseFloat(localStorage.getItem(getStorageKey('saldoAtual'))) || 0.0;
       setSaldoAtual(saldo);
-    }, 1000); // Verifica o saldo a cada segundo
-  
+    }, 1000); // Atualiza o saldo a cada segundo
+
     return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
-  }, []);
-  
-  useEffect(() => {
-    // Carrega o saldo inicial
-    loadSaldoAtual();
-
-    // Função que atualiza o saldoAtual sempre que ele mudar no localStorage
-    const handleStorageChange = (event) => {
-      if (event.key === 'saldoAtual') {
-        loadSaldoAtual(); // Atualiza o estado com o novo valor do saldo
-      }
-    };
-
-    // Listener que reage a mudanças no localStorage
-    window.addEventListener('storage', handleStorageChange);
-
-    // Limpa o listener ao desmontar o componente
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-    };
-  }, []); // Executa apenas uma vez ao montar o componente
+  }, [email, loading]);
 
   useEffect(() => {
-    // Função para carregar os dados do usuário atual
-    const loadUserData = () => {
-      const usersData = JSON.parse(localStorage.getItem('usersData')) || {}; // Recupera os dados de todos os usuários
-      if (usersData[email]) {
-        setPagoHoje(usersData[email].pagoHoje);
-        setPessoasCount(usersData[email].pessoasCount);
-      } else {
-        // Se o email for novo, usar os valores padrão
-        setPagoHoje(16500);
-        setPessoasCount(734);
-      }
-    };
+    if (!email || loading) return;
 
-    loadUserData(); // Carregar dados ao montar o componente
-
-    // Intervalo para incrementar "pagoHoy" mais rapidamente
     const pagoHojeInterval = setInterval(() => {
       setPagoHoje((prev) => {
         const newPagoHoje = prev + 150;
-        updateUserData(email, { pagoHoje: newPagoHoje, pessoasCount }); // Atualizar localStorage
+        localStorage.setItem(getStorageKey('pagoHoje'), newPagoHoje.toString());
         return newPagoHoje;
       });
     }, 10000); // Incrementa a cada 10 segundos
 
-    // Intervalo para incrementar "pessoasCount" mais lentamente
     const pessoasCountInterval = setInterval(() => {
       setPessoasCount((prev) => {
         const newPessoasCount = prev + 1;
-        updateUserData(email, { pagoHoje, pessoasCount: newPessoasCount }); // Atualizar localStorage
+        localStorage.setItem(getStorageKey('pessoasCount'), newPessoasCount.toString());
         return newPessoasCount;
       });
     }, 7000); // Incrementa a cada 7 segundos
 
-    // Limpar intervalos ao desmontar o componente
     return () => {
       clearInterval(pagoHojeInterval);
       clearInterval(pessoasCountInterval);
     };
-  }, [email]);
+  }, [email, loading]);
 
-  // Função para atualizar os dados do usuário no localStorage
-  const updateUserData = (userEmail, newData) => {
-    const usersData = JSON.parse(localStorage.getItem('usersData')) || {}; // Recupera os dados existentes
-    usersData[userEmail] = { ...usersData[userEmail], ...newData }; // Atualiza ou cria os dados do email
-    localStorage.setItem('usersData', JSON.stringify(usersData)); // Salva de volta no localStorage
-  };
+  if (loading) {
+    return <div>Carregando...</div>; // Placeholder enquanto os dados são carregados
+  }
 
   return (
     <div className={styles.containerForm}>
@@ -103,7 +77,6 @@ function Header({ email }) {
           marginDireita="-28px"
         />
         <div className={styles.containerValor}>
-          {/* Renderiza o saldoAtual */}
           <p id="saldoAtual">R$ {saldoAtual.toFixed(2)}</p>
         </div>
       </div>
