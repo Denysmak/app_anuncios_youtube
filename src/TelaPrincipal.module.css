@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     scroll-behavior: smooth;
-
+    height: fit-content;
+   
 }
 .content{
     width: 90%;
@@ -12,4 +13,5 @@
     justify-content: center;
     font-family: inter,  -apple-system,  sans-serif;
     height: fit-content;
+   
 }
