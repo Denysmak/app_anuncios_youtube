@@ -39,6 +39,7 @@
 .saldo{
     color: #ff0800;
 }
+
 @media (max-width: 650px){
     .container{
         width:380px 

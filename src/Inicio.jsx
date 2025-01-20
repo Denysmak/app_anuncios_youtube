@@ -15,7 +15,7 @@ function Inicio({ email }) {
   // Estado do saldo atual
   const [saldoAtual, setSaldoAtual] = useState(() => {
     const saldoSalvo = localStorage.getItem(getStorageKey('saldoAtual'));
-    return saldoSalvo ? parseFloat(saldoSalvo) : 100.0;
+    return saldoSalvo ? parseFloat(saldoSalvo) : 0.0;
   });
 
   // Estado para o número de avaliações
