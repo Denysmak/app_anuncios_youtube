@@ -24,7 +24,7 @@ function Saque({ email }) {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    alert('Formulário enviado!');
+    
     setAtivo(null); // Fecha o formulário após enviar
   };
 
@@ -35,16 +35,18 @@ function Saque({ email }) {
         <h1 className={styles.saldo}>R$ {parseFloat(saldoSalvo).toFixed(2)}</h1>
       </div>
       <div className={`${styles.container} ${styles.bancos}`}>
-        <Banco src={paypal} onClick={() => handleBancoClick('paypal')} />
-        <Banco src={payoneer} onClick={() => handleBancoClick('payoneer')} />
-        <Banco src={ebanx} onClick={() => handleBancoClick('ebanx')} />
-        <Banco src={monzo} onClick={() => handleBancoClick('monzo')} />
+        <Banco src={paypal} onClick={() => handleBancoClick('paypal')} saldo={saldoSalvo} />
+        <Banco src={payoneer} onClick={() => handleBancoClick('payoneer')} saldo={saldoSalvo} />
+        <Banco src={ebanx} onClick={() => handleBancoClick('ebanx')} saldo={saldoSalvo} />
+        <Banco src={monzo} onClick={() => handleBancoClick('monzo')} saldo={saldoSalvo} />
       </div>
       {ativo && (
         <div className={styles.containerNotification}>
           <form onSubmit={handleFormSubmit}>
             <h3>¿Cuál es tu correo electrónico?</h3>
             <input type="email" name="email" id="email" required />
+            <h3>Valor</h3>
+            <input type="number" />
             <button type="submit">Enviar</button>
           </form>
         </div>
