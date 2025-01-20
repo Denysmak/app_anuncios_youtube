@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.containerVideo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+}
+@media (max-width: 800px){
+    .containerVideo{
+        width: 90%;
+        margin-top: 10px;
+    }
+    .video{
+        width: 450px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 720px){
+    .containerVideo{
+        width: 90%;
+        margin-top: 10px;
+    }
+    .video{
+        width: 400px;
+        height: 200px;
+    }
+}
+@media (max-width: 500px){
+    .containerVideo{
+        width: 90%;
+        margin-top: 10px;
+    }
+    .video{
+        width: 300px;
+        height: 200px;
+    }
+}

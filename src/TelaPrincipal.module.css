@@ -1,6 +1,8 @@
 .container{
     display: flex;
     justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
 
 }
 .content{
@@ -9,4 +11,5 @@
     align-items: center;
     justify-content: center;
     font-family: inter,  -apple-system,  sans-serif;
+    height: fit-content;
 }

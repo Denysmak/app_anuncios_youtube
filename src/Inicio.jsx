@@ -4,7 +4,7 @@ import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
-
+import AvaliaVideo from './AvaliaVideo';
 
 
 function Inicio() {
@@ -19,6 +19,7 @@ function Inicio() {
             <Numero icone={faCheck} texto={'Pesquisas Restantes'} valor={'R$ 100.00'} corIcone={'rgb(157 ,84 ,187)'} corBackground={'rgba(157 ,84 ,187, 0.3)'}/>
             <Numero icone={faChartSimple} texto={'Potencial Diário Restante'} valor={'R$ 100.00'} corIcone={'rgb(240, 199 ,85)'} corBackground={'rgba(240, 199 ,85, 0.3)'}/>
         </div>
+        <AvaliaVideo />
 
       </div>;
   }
