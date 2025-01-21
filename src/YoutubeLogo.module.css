@@ -1,0 +1,19 @@
+.containerLogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content; 
+    margin-left: 10px;
+    position: relative;
+    height: fit-content;
+    padding: 10px 20px;
+}
+.logoYoutube{
+
+    position: absolute;
+    left: -50%;
+    transform: translateX(25%);
+}
+a{
+    text-decoration: none;
+}

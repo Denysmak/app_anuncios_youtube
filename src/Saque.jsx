@@ -36,7 +36,7 @@ function Saque({ email }) {
 
     // Validar o valor antes de prosseguir
     if (isNaN(valorNumerico) || valorNumerico <= 0) {
-      alert('Por favor, insira um valor válido.');
+      alert('Por favor, ingrese un valor válido.');
       return;
     }
 
@@ -50,7 +50,7 @@ function Saque({ email }) {
     setSaldo(novoSaldo); // Atualiza o estado React
     localStorage.setItem(getStorageKey('saldoAtual'), novoSaldo); // Atualiza o localStorage
 
-    alert('Saque realizado com sucesso!');
+    alert('¡Retiro realizado con éxito!');
 
     setAtivo(null); // Fecha o formulário após enviar
     setValor(''); // Limpa o campo de valor

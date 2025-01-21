@@ -25,11 +25,11 @@ function Banco({ src, alt, saldo }) {
 
     // Validação: o valor deve ser menor que o saldo
     if (Number(valor) > saldo) {
-      alert('O valor deve ser menor ou igual ao saldo disponível.');
+      alert('El valor debe ser menor o igual al saldo disponible.');
       return;
     }
 
-    alert('Formulário enviado!'); // Simula o envio
+    alert('¡Formulario enviado!'); // Simula o envio
     setMostrarFormulario(false); // Fecha o formulário após o envio
 
     // Exibe a notificação após o envio
@@ -40,7 +40,18 @@ function Banco({ src, alt, saldo }) {
       setMostrarNotificacao(false);
     }, 3000);
   };
+  document.addEventListener("DOMContentLoaded", function () {
+    const emailInput = document.getElementById("email");
 
+    emailInput.addEventListener("invalid", function (event) {
+        event.preventDefault(); // Impede a mensagem padrão do navegador
+        emailInput.setCustomValidity("Por favor, ingrese un correo electrónico válido.");
+    });
+
+    emailInput.addEventListener("input", function () {
+        emailInput.setCustomValidity(""); // Limpa a mensagem personalizada ao corrigir o erro
+    });
+});
   return (
     <div className={styles.classePai} onClick={handleBancoClick}>
       <div className={styles.containerImagem}>
@@ -56,12 +67,12 @@ function Banco({ src, alt, saldo }) {
             >
               <h3>¿Cuál es tu correo electrónico?</h3>
               <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Ingrese su email"
-                required
-              />
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Ingrese su email"
+            required
+        />
               <h3>Valor</h3>
               
               <input

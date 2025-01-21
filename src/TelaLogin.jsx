@@ -15,7 +15,7 @@ function TelaLogin() {
       localStorage.setItem('userEmail', email); //salva o e-mail no localstorage
       navigate('/telaPrincipal'); //Redireciona para outo componente
     } else {
-      alert('Por favor, insira um e-mail válido.');
+      alert('Por favor, ingrese un correo electrónico válido.');
     }
 
 

@@ -26,15 +26,7 @@
     min-height: 270px;
 
 }
-.containerLogo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
 
-    padding-right: 8%;
-
-}
 #logoYoutube{
     width: auto;
     height: 80px;
