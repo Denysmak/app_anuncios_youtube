@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Pergunta from './Pergunta';
+import styles from './Ajuda.module.css'
+
+
 function Ajuda() {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -37,17 +40,34 @@ function Ajuda() {
   const handleClick = (id) => {
     setActiveIndex((prevIndex) => (prevIndex === id ? null : id));
   };
+  const [larguraTela, setLarguraTela] = useState(window.innerWidth);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setLarguraTela(window.innerWidth);
+    };
+
+    // Adiciona o listener para o resize da janela
+    window.addEventListener('resize', handleResize);
+
+    // Remove o listener ao desmontar o componente
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+    
   const estilo = {
     color: '#ff0800', // Cor do texto
     textAlign: 'center',
-    marginTop: '120px',
-    marginBottom: '20px'
+  
+    marginBottom: '20px',
+    marginTop: larguraTela < 550 ? '50px' : '120px'
+
   };
   const estiloPai = {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+ 
   };
 
 
