@@ -29,7 +29,7 @@ function Banco({ src, alt, saldo }) {
       return;
     }
 
-    alert('¡Formulario enviado!'); // Simula o envio
+     // Simula o envio
     setMostrarFormulario(false); // Fecha o formulário após o envio
 
     // Exibe a notificação após o envio

@@ -20,7 +20,7 @@ const VideoPlayer = ({ onRate, email }) => {
   ];
   const currentApiKey = API_KEYS[apiKeyIndex];
   const VIMEO_ACCESS_TOKEN = "0dfc00064b5fd780ea62e558d9179770";
-const EMERGENCY_VIDEOS = [
+  const EMERGENCY_VIDEOS = [
     "https://www.youtube.com/embed/JuYeHPFR3f0", // Shakira - Waka Waka
     "https://www.youtube.com/embed/Rht7rBHuXW8", // Enrique Iglesias - Bailando
     "https://www.youtube.com/embed/1G4isv_Fylg", // Luis Fonsi - Despacito
@@ -144,6 +144,13 @@ const EMERGENCY_VIDEOS = [
       fetchYouTubeVideos();
     }
   }, [apiKeyIndex, useVimeo]);
+
+  useEffect(() => {
+    // Clicar no botão de "Próximo Vídeo" automaticamente após carregar a página
+    if (videos.length > 0) {
+      goToNextVideo();
+    }
+  }, [videos]);
 
   const handleRating = (rating) => {
     setNotification(`Você deu um ${rating} para o vídeo!`);
