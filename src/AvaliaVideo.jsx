@@ -197,7 +197,7 @@ const EMERGENCY_VIDEOS = [
             allowFullScreen
             onError={handleVideoError}
           ></iframe>
-          <div>
+          <div className={styles.containerBotoes}> 
             <button onClick={() => handleRating("like")}>👍 Like</button>
             <button onClick={() => handleRating("dislike")}>👎 Dislike</button>
             <button onClick={skipVideo}>⏭ Pular Vídeo</button>

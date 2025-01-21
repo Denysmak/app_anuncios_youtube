@@ -6,6 +6,12 @@ function Banco({ src, alt, saldo }) {
   const [mostrarNotificacao, setMostrarNotificacao] = useState(false);
   const [valor, setValor] = useState(''); // Estado para armazenar o valor do input
 
+
+
+  const valorsaldo = localStorage.getItem("saldoAtual");
+
+
+
   const handleBancoClick = () => {
     setMostrarFormulario(!mostrarFormulario); // Alterna o estado para mostrar/esconder o formulário
   };
@@ -57,6 +63,7 @@ function Banco({ src, alt, saldo }) {
                 required
               />
               <h3>Valor</h3>
+              
               <input
                 type="number"
                 value={valor}
@@ -74,8 +81,7 @@ function Banco({ src, alt, saldo }) {
           <div className={styles.containerTexto}>
           <h2>¡Gracias por comprar!</h2>
           <p>¡Le agradecemos su confianza y lo felicitamos por tomar la decisión correcta! ¡Ahora solo espera y en un momento te enviaremos un correo electrónico con toda tu información de acceso!
-          </p>
-          </div>
+          </p></div>
         </div>
       )}
     </div>
