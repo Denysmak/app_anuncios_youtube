@@ -60,7 +60,7 @@ function Ajuda() {
     textAlign: 'center',
   
     marginBottom: '20px',
-    marginTop: larguraTela < 550 ? '50px' : '120px'
+    marginTop: larguraTela < 550 ? '10px' : '80px'
 
   };
   const estiloPai = {

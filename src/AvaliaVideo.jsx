@@ -153,18 +153,28 @@ const VideoPlayer = ({ onRate, email }) => {
   }, [videos]);
 
   const handleRating = (rating) => {
-    setNotification(`Você deu um ${rating} para o vídeo!`);
-    const newAvaliacaoValor = (userData.avaliacaoValor || 0) + 2;
 
+    if ((userData.avaliacaoValor || 0) >= 20) { // 20 porque 10 avaliações x R$2,00
+      alert("Ya has alcanzado el límite de 10 evaluaciones.");
+      return;
+    }
+    
+  
+    // Faz o scroll para o topo da página
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  
+    setNotification(`¡Has dado un ${rating} al video!`);
+    const newAvaliacaoValor = (userData.avaliacaoValor || 0) + 2;
+  
     // Atualiza o estado e salva no localStorage
     const updatedData = { ...userData, avaliacaoValor: newAvaliacaoValor };
     setUserData(updatedData);
     saveUserData(updatedData);
-
+  
     if (typeof onRate === "function") {
-      onRate(2); // Valor fixo de R$ 2,00
+      onRate(1); // Valor fixo de R$ 2,00
     }
-
+  
     setTimeout(() => setNotification(""), 3000);
     goToNextVideo();
   };
@@ -224,7 +234,7 @@ const VideoPlayer = ({ onRate, email }) => {
             </div>
             <h2>¡Felicidades!</h2>
             <p>¡Has completado una encuesta y ganaste!</p>
-            <h2 id={styles.valor}>R$ 2.00</h2>
+            <h2 id={styles.valor}>$ 1.00</h2>
             <p>¡Continúa evaluando más artistas para aumentar tus ganancias!</p>
           </div>
         </div>

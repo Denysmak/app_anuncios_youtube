@@ -59,7 +59,7 @@ function Inicio({ email }) {
         <Numero
           icone={faDollarSign}
           texto={'Saldo actual'}
-          valor={`R$ ${saldoAtual.toFixed(2)}`}
+          valor={`$ ${saldoAtual.toFixed(2)}`}
           corIcone={'rgb(16, 185, 115)'}
           corBackground={'rgba(16, 185, 115, 0.3)'}
         />
@@ -80,7 +80,7 @@ function Inicio({ email }) {
         <Numero
           icone={faChartSimple}
           texto={'Potencial diario restante'}
-          valor={`R$ ${(10 - numeroAvaliacoes) * 2}.00`}
+          valor={`$ ${(10 - numeroAvaliacoes) * 2}.00`}
           corIcone={'rgb(240, 199 ,85)'}
           corBackground={'rgba(240, 199 ,85, 0.3)'}
         />

@@ -60,7 +60,7 @@ function Saque({ email }) {
     <div className={styles.pai}>
       <div className={styles.container}>
         <h3>Seu saldo</h3>
-        <h1 className={styles.saldo}>R$ {saldo.toFixed(2)}</h1> {/* Sempre reflete o estado atualizado */}
+        <h1 className={styles.saldo}>$ {saldo.toFixed(2)}</h1> {/* Sempre reflete o estado atualizado */}
       </div>
       <div className={`${styles.container} ${styles.bancos}`}>
         <Banco src={paypal} onClick={() => handleBancoClick('paypal')} saldo={saldo} email={email}/>

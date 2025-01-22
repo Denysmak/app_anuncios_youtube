@@ -77,7 +77,7 @@ function Header({ email }) {
           marginDireita="-28px"
         />
         <div className={styles.containerValor}>
-          <p id="saldoAtual">R$ {saldoAtual.toFixed(2)}</p>
+          <p id="saldoAtual">$ {saldoAtual.toFixed(2)}</p>
         </div>
       </div>
       <div className={styles.informacoes}>
@@ -88,7 +88,7 @@ function Header({ email }) {
         <div className={styles.pagoHoje}>
           <img src={sack} alt="Sack" />
           <p>
-            Pago hoy: <span id="pagoHoy">R$ {pagoHoje.toFixed(2)}</span>
+            Pago hoy: <span id="pagoHoy">$ {pagoHoje.toFixed(2)}</span>
           </p>
         </div>
         <div className={styles.pessoas}>
