@@ -3,7 +3,10 @@ import styles from './AvaliaVideo.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-const VideoPlayer = ({ onRate, email }) => {
+const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
+
+
+  
   const [videos, setVideos] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [displayedVideos, setDisplayedVideos] = useState([]);
@@ -87,6 +90,7 @@ const VideoPlayer = ({ onRate, email }) => {
     const usersData = JSON.parse(localStorage.getItem("usersData")) || {};
     return usersData[email] || { avaliacaoValor: 0 }; // Dados padrão para novo usuário
   };
+  
 
   // Salvar dados do usuário no localStorage
   const saveUserData = (newData) => {
@@ -96,6 +100,7 @@ const VideoPlayer = ({ onRate, email }) => {
   };
 
   const [userData, setUserData] = useState(loadUserData);
+
 
   const fetchYouTubeVideos = async (pageToken = "") => {
     try {
@@ -152,6 +157,8 @@ const VideoPlayer = ({ onRate, email }) => {
     }
   }, [videos]);
 
+  
+
   const handleRating = (rating) => {
 
     if ((userData.avaliacaoValor || 0) >= 20) { // 20 porque 10 avaliações x R$2,00
@@ -163,6 +170,13 @@ const VideoPlayer = ({ onRate, email }) => {
     // Faz o scroll para o topo da página
     window.scrollTo({ top: 0, behavior: "smooth" });
   
+    document.body.style.overflow = "hidden";
+
+    // Reativar scroll após 5 segundos
+    setTimeout(() => {
+      document.body.style.overflow = "auto";
+    }, 3000);
+
     setNotification(`¡Has dado un ${rating} al video!`);
     const newAvaliacaoValor = (userData.avaliacaoValor || 0) + 2;
   
@@ -223,8 +237,7 @@ const VideoPlayer = ({ onRate, email }) => {
       ) : (
         <p>Cargando videos...</p>
       )}
-
-      {notification && (
+      {numeroAvaliacoes < 10 && notification && (
         <div className={styles.containerNotification}>
           <div className={styles.notification}>
             <div className={styles.containerCor}>
@@ -232,7 +245,9 @@ const VideoPlayer = ({ onRate, email }) => {
                 <FontAwesomeIcon icon={faCheck} />
               </div>
             </div>
+            
             <h2>¡Felicidades!</h2>
+       
             <p>¡Has completado una encuesta y ganaste!</p>
             <h2 id={styles.valor}>$ 1.00</h2>
             <p>¡Continúa evaluando más artistas para aumentar tus ganancias!</p>

@@ -34,7 +34,15 @@ function Banco({ src, alt, saldo }) {
 
     // Exibe a notificação após o envio
     setMostrarNotificacao(true);
-
+        // Faz o scroll para o topo da página
+        window.scrollTo({ top: 0, behavior: "smooth" });
+  
+        document.body.style.overflow = "hidden";
+    
+        // Reativar scroll após 5 segundos
+        setTimeout(() => {
+          document.body.style.overflow = "auto";
+        }, 3000);
     // Remove a notificação automaticamente após 3 segundos
     setTimeout(() => {
       setMostrarNotificacao(false);
@@ -49,6 +57,7 @@ function Banco({ src, alt, saldo }) {
     });
 
     emailInput.addEventListener("input", function () {
+      
         emailInput.setCustomValidity(""); // Limpa a mensagem personalizada ao corrigir o erro
     });
 });

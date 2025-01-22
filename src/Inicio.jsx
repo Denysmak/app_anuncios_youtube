@@ -85,7 +85,7 @@ function Inicio({ email }) {
           corBackground={'rgba(240, 199 ,85, 0.3)'}
         />
       </div>
-      <AvaliaVideo onRate={handleAvaliaVideo} />
+      <AvaliaVideo email={email} onRate={handleAvaliaVideo} numeroAvaliacoes={numeroAvaliacoes} />
     </div>
   );
 }
