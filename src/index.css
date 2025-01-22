@@ -7,7 +7,7 @@ body{
     font-family: inter,  -apple-system,  sans-serif;
 }
 #root{
-    height: fit-content;
+    height: 100%;
 
 
 }
