@@ -15,37 +15,34 @@
 #valor{
     color: red;
 }
-.notification{
+.notification {
     padding: 20px;
     box-sizing: border-box;
     width: 450px;
     height: 300px;
     background-color: white;
     border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 .notification > *{
     margin-bottom: 15px;
 }
-.containerNotification{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    color: black;
-    text-align: center;
+.containerNotification {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: calc(100% + 0px);
-    z-index: 8;
+    height: 100%;
     background-color: rgba(128, 128, 128, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 8;
 }
+
 .containerCor{
     background-color: rgba(192, 101, 101, 0.3);
     display: flex;
@@ -97,6 +94,11 @@
     }
 }
 @media (max-width: 500px){
+    .notification {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+    }
     .containerVideo{
         width: 90%;
         margin-top: 10px;

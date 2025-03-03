@@ -99,9 +99,14 @@ function Banco({ src, alt, saldo }) {
       {mostrarNotificacao && (
         <div className={styles.notificacao}>
           <div className={styles.containerTexto}>
-          <h2>¡Gracias por comprar!</h2>
-          <p>¡Le agradecemos su confianza y lo felicitamos por tomar la decisión correcta! ¡Ahora solo espera y en un momento te enviaremos un correo electrónico con toda tu información de acceso!
-          </p></div>
+          <h2>Error al realizar el retiro</h2>
+          <br/>
+          <p><strong>Valor mínimo para retiro: US$3000</strong></p>
+          <br/>
+          <p>
+            Por qué necesitas alcanzar la meta de US$3000? Porque muchas personas malintencionadas entran en la aplicación, retiran su saldo inicial y nunca vuelven a usar la aplicación, o utilizan programas para obtener ventajas y ganar dinero.
+          </p>
+          </div>
         </div>
       )}
     </div>

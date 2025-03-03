@@ -1,4 +1,3 @@
-
 .logo{
     width: 65px;
     display: flex;
@@ -55,6 +54,7 @@
     width: 100%;
     height: 100%;
     z-index: 5;
+    
 }
 
 .containerNotification form{
@@ -67,6 +67,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    
 }
 .formulario button{
     margin-top: 20px;
@@ -83,6 +84,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 .containerTexto{
     background-color: white;
