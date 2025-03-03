@@ -189,7 +189,7 @@ const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
       onRate(1); // Valor fixo de R$ 2,00
     }
   
-    setTimeout(() => setNotification(""), 3000);
+    
     goToNextVideo();
   };
 
@@ -238,22 +238,27 @@ const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
         <p>Cargando videos...</p>
       )}
       {numeroAvaliacoes < 10 && notification && (
-        <div className={styles.containerNotification}>
-          <div className={styles.notification}>
+    <div className={styles.containerNotification}>
+        <div className={styles.notification}>
             <div className={styles.containerCor}>
-              <div className={styles.checkContainer}>
-                <FontAwesomeIcon icon={faCheck} />
-              </div>
+                <div className={styles.checkContainer}>
+                    <FontAwesomeIcon icon={faCheck} />
+                </div>
             </div>
-            
             <h2>¡Felicidades!</h2>
-       
             <p>¡Has completado una encuesta y ganaste!</p>
             <h2 id={styles.valor}>$ 1.00</h2>
             <p>¡Continúa evaluando más artistas para aumentar tus ganancias!</p>
-          </div>
+            {/* Botão de fechar */}
+            <button
+                className={styles.closeButton}
+                onClick={() => setNotification("")}
+            >
+                Fechar
+            </button>
         </div>
-      )}
+    </div>
+)}
     </div>
   );
 };

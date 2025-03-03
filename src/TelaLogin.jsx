@@ -29,7 +29,7 @@ function TelaLogin() {
      <div className="containerForm">
       <YoutubeLogo/>
       <div className="texto">
-      <h2>Bienvenido(a) a YoutubeOpina</h2>
+      <h2>Bienvenido(a) a Youtube Rewards</h2>
       <p>Ingresa tu correo electrónico para continuar</p>
       </div>
       <form onSubmit={handleSubmit}>
@@ -38,7 +38,7 @@ function TelaLogin() {
       </form>
      </div>
      <div className="containerTermos">
-      <p>2024 Youtube LLC</p>
+      <p>2025 Youtube </p>
       <p className='segundoParagrafo'>Términos y Política de Privacidad</p>
      </div>
      </div>
