@@ -9,7 +9,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/appyt'>
       <Routes>
         <Route path="/" element={<TelaLogin />} />
         <Route path="/telaPrincipal" element={<TelaPrincipal />} />

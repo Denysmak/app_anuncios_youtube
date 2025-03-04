@@ -177,7 +177,7 @@ const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
   
     document.body.style.overflow = "hidden";
 
-    // Reativar scroll após 5 segundos
+   
     setTimeout(() => {
       document.body.style.overflow = "auto";
     }, 3000);
@@ -196,6 +196,10 @@ const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
   
     
     goToNextVideo();
+    // Fechar a notificação após 3 segundos
+    setTimeout(() => {
+      setNotification("");
+    }, 3000);
   };
 
   const handleVideoError = () => {
@@ -255,12 +259,7 @@ const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
             <h2 id={styles.valor}>$ 1.00</h2>
             <p>¡Continúa evaluando más artistas para aumentar tus ganancias!</p>
             {/* Botão de fechar */}
-            <button
-                className={styles.closeButton}
-                onClick={() => setNotification("")}
-            >
-                Fechar
-            </button>
+       
         </div>
     </div>
 )}

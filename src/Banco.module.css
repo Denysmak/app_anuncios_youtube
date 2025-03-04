@@ -86,10 +86,14 @@
     justify-content: center;
     text-align: center;
 }
+.botaoFechar{
+    padding: 10px 15px;
+    border-radius: 12px;
+}
 .containerTexto{
     background-color: white;
     width: 350px;
-    height: 200px;
+    height: 280px;
     padding: 20px;
     border-radius: 12px;
 }
