@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from './AvaliaVideo.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-
+import coinSound from './assets/coin.mp3';
 const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
 
 
@@ -91,7 +91,12 @@ const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
     return usersData[email] || { avaliacaoValor: 0 }; // Dados padrão para novo usuário
   };
   
-
+  const playMoneySound = () => {
+    const audio = new Audio(coinSound); // Caminho para o arquivo de áudio
+    audio.play().catch((error) => {
+        console.error("Erro ao reproduzir o som:", error);
+    });
+};
   // Salvar dados do usuário no localStorage
   const saveUserData = (newData) => {
     const usersData = JSON.parse(localStorage.getItem("usersData")) || {};
@@ -166,7 +171,7 @@ const VideoPlayer = ({ onRate, email, numeroAvaliacoes }) => {
       return;
     }
     
-  
+    playMoneySound()
     // Faz o scroll para o topo da página
     window.scrollTo({ top: 0, behavior: "smooth" });
   
